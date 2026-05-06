@@ -1,4 +1,4 @@
-# fitness-ai-api
+
 # Fitness AI API
 
 A FastAPI-based backend application for fitness analysis with JWT authentication.
