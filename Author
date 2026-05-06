@@ -1,0 +1,9 @@
+
+---
+
+## ✅ 2. Create `requirements.txt`
+
+Run:
+
+```bash
+pip freeze > requirements.txt
