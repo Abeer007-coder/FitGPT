@@ -67,7 +67,7 @@ async function loadHistory(){
 
     const token = localStorage.getItem("token");
 
-const res = await fetch("http://127.0.0.1:8000/history", {
+const res = await fetch("https://fitgpt-n655.onrender.com/history", {
     method: "GET",
     headers: {
         "Authorization": "Bearer " + token
