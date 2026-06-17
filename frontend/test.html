@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="test()">Test Analyze</button>
+
+<script>
+async function test() {
+
+    const token = localStorage.getItem("token");
+
+    const res = await fetch("http://127.0.0.1:8000/analyze", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({
+            age: 22,
+            gender: "male",
+            height: 170,
+            weight: 70,
+            activity_level: "moderate",
+            goal: "lose"
+        })
+    });
+
+    const data = await res.json();
+    console.log(data);
+    alert(JSON.stringify(data));
+}
+</script>
+
+</body>
+</html>

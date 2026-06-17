@@ -1,0 +1,138 @@
+body{
+    background:#f5f7fa;
+}
+.hero{
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.45)
+    ),
+    url("images/sprint.jpg");
+    background-size:cover;
+    background-position:center 10%;
+    background-repeat:no-repeat;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    color:white;
+
+    padding:20px;
+}
+
+.hero h1{
+    font-size:clamp(2.5rem, 6vw, 5rem);
+    font-weight:700;
+}
+
+.hero .lead{
+    font-size:clamp(1.2rem, 2.5vw, 2rem);
+    max-width:900px;
+}
+
+.hero p{
+    max-width:800px;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+    transition:0.3s;
+    backdrop-filter: blur(10px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+html, body {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f5f7fa;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    width: 100%;
+}
+a{
+    color: green;
+}
+@media (max-width: 768px){
+
+    .hero{
+        min-height: 85vh;
+        background-position:60% center;
+    }
+
+    .hero h1{
+        font-size: 2.7rem;
+    }
+
+    .hero p{
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1200px){
+
+    .hero{
+        min-height: 90vh;
+    }
+
+    .hero h1{
+        font-size: 5rem;
+    }
+}
+body{
+    min-height:100vh;
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.6)
+    ),
+    url("images/sprint.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.auth-card,
+.dashboard-card{
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.page-center{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.result-card{
+    margin-top:20px;
+    background:#f8f9fa;
+    border-radius:15px;
+    padding:15px;
+}
+#column{
+    align-items: center;
+}

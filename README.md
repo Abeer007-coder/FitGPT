@@ -1,5 +1,5 @@
 
-# Fitness AI API
+# FitGPT
 
 A FastAPI-based backend application for fitness analysis with JWT authentication.
 

@@ -1,14 +1,10 @@
-
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, String, Float, DateTime
 from app.database import Base
-from sqlalchemy import DateTime
 from datetime import datetime
-
-created_at = Column(DateTime, default=datetime.utcnow)
-
 
 class HealthRecord(Base):
     __tablename__ = "health_records"
+
     id = Column(Integer, primary_key=True, index=True)
     age = Column(Integer)
     gender = Column(String)
@@ -16,11 +12,13 @@ class HealthRecord(Base):
     weight = Column(Float)
     bmi = Column(Float)
     category = Column(String)
-    user_email = Column(String)
     calories = Column(Float)
+    user_email = Column(String)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
 class User(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)
-    password = Column(String)    
+    password = Column(String)

@@ -81,35 +81,40 @@ def analyze_health(data: HealthInput, user=Depends(get_current_user)):
         "advice": advice
     }
 @router.get("/records")
-def get_records():
-    db = SessionLocal()
-    records = db.query(models.HealthRecord).all()
-    return records
-@router.get("/progress")
-def get_progress():
-    db = SessionLocal()
-    data = db.query(models.HealthRecord).all()
-
-    return [
-        {
-            "date": r.id,
-            "weight": r.weight,
-            "bmi": r.bmi
-        } for r in data
-    ]
-
-    return {
-        "bmi": bmi,
-        "category": category,
-        "calories": calories,
-        "message": "Data saved successfully"
-    }
-@router.get("/history")
-def get_history(user=Depends(get_current_user)):
+def get_records(user=Depends(get_current_user)):
     db = SessionLocal()
 
     data = db.query(models.HealthRecord).filter(
         models.HealthRecord.user_email == user
     ).all()
+
+    return data
+@router.get("/progress")
+def get_progress(user=Depends(get_current_user)):
+    db = SessionLocal()
+
+    data = db.query(models.HealthRecord).filter(
+        models.HealthRecord.user_email == user
+    ).all()
+
+    return [
+        {
+            "date": r.created_at,
+            "weight": r.weight,
+            "bmi": r.bmi
+        }
+        for r in data
+    ]
+    
+@router.get("/history")
+def get_history(user=Depends(get_current_user)):
+    db = SessionLocal()
+
+    data = (
+        db.query(models.HealthRecord)
+        .filter(models.HealthRecord.user_email == user)
+        .order_by(models.HealthRecord.created_at.desc())
+        .all()
+    )
 
     return data
